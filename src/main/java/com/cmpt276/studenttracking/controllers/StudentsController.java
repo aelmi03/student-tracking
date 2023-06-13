@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,8 +47,9 @@ public class StudentsController {
     public RedirectView addStudent(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         System.out.println(newStudent);
         String studentName = newStudent.get("name");
+        System.out.println("STUDENT GPA !!!! : " + newStudent.get("GPA"));
         double studentWeight = Float.parseFloat(newStudent.get("weight"));
-        double studentGPA = Float.parseFloat(newStudent.get("GPA"));
+        double studentGPA = Double.parseDouble(newStudent.get("GPA"));
         String studentFavouriteColour = newStudent.get("color");
         String studentHairColour = newStudent.get("hairColour");
         double studentHeight = Float.parseFloat(newStudent.get("height"));
