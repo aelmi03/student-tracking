@@ -27,7 +27,7 @@ public class Student {
         this.favouriteColour = favouriteColour;
     }
     public Student(){
-        
+
     }
     public String getFavouriteColour() {
         return favouriteColour;
@@ -64,6 +64,9 @@ public class Student {
     }
     public void setGpa(double gpa) {
         this.gpa = gpa;
+    }
+    public Integer getId(){
+        return this.uid;
     }
     
 }
