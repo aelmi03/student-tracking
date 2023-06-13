@@ -17,12 +17,23 @@ public class Student {
     private double height;
     private String hairColour;
     private double gpa;
-    public Student(double weight, String name, double height, String hairColour, double gpa) {
+    private String favouriteColour;
+    public Student(double weight, String name, double height, String hairColour, double gpa, String favouriteColour) {
         this.weight = weight;
         this.name = name;
         this.height = height;
         this.hairColour = hairColour;
         this.gpa = gpa;
+        this.favouriteColour = favouriteColour;
+    }
+    public Student(){
+        
+    }
+    public String getFavouriteColour() {
+        return favouriteColour;
+    }
+    public void setFavouriteColour(String favouriteColour) {
+        this.favouriteColour = favouriteColour;
     }
     public double getWeight() {
         return weight;

@@ -13,20 +13,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   </head>
   <body>
     <h1 class="display-2">Students</h1>
-    <button type="button" class = "btn btn-primary">Add New Student</button>
+    <button type="button" class = "btn btn-primary" onclick="document.location.href='/add'">Add New Student</button>
     <ul>
-        <div class="student-card">
+        <div th:each="student:${students}" class="student-card" th:style="'border: 2px dotted ' + ${student.favouriteColour}">
             <i class="fa-solid fa-delete-left" style="color: #ff0000;"></i>
 
-                <h3 > Johnny</h3>
+            <h3 th:text="${student.name}"> Johnny</h3>
             <p class="fw-bold">Weight:</p>
-            <p>145</p>
+            <p th:text="${student.weight}">145</p>
             <p class="fw-bold">Height:</p>
-            <p>170</p>
+            <p th:text="${student.height}">170</p>
             <p class="fw-bold">Hair Colour:</p>
-            <p>Red</p>
+            <p th:text="${student.hairColour}">Red</p>
             <p class="fw-bold">GPA</p>
-            <p>5.53</p>
+            <p th:text="${student.gpa}">5.53</p>
+            <p class="fw-bold">Favourite Colour</p>
+            <input type="color" th:value="${student.favouriteColour}" class="form-control"  disabled/>
             <button type="button" class = "btn btn-primary">Edit</button>
         </div>
     </ul>
