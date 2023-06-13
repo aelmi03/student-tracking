@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,6 +70,13 @@ public class StudentsController {
        student.setHeight(Float.parseFloat(updatedStudent.get("height")));
         studentRepo.save(student);
         response.setStatus(204);
+        return new RedirectView("/");
+    }
+
+    @GetMapping("/delete/{uid}")
+    public RedirectView deleteStudent(@PathVariable Integer uid, HttpServletResponse response){
+        studentRepo.deleteById(uid);
+        response.setStatus(200);
         return new RedirectView("/");
     }
 

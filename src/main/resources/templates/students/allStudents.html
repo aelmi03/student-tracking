@@ -9,6 +9,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/allStudents.css" >
 <script src="/js/editStudent.js" defer></script>
+<script src="/js/deleteStudent.js" defer></script>
 <body>
     <title>Students</title>
   </head>
@@ -17,7 +18,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     <button type="button" class = "btn btn-primary" onclick="document.location.href='/add'">Add New Student</button>
     <ul>
         <div th:each="student:${students}" class="student-card" th:style="'border: 2px dotted ' + ${student.favouriteColour}">
-            <i class="fa-solid fa-delete-left" style="color: #ff0000;"></i>
+            <i class="fa-solid fa-delete-left" style="color: #ff0000;" th:attr="data-id=${student.getId()}"></i>
 
             <h3 th:text="${student.name}"> Johnny</h3>
             <p class="fw-bold">Weight:</p>
